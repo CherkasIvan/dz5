@@ -1,0 +1,39 @@
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите предложение ");
+            String sent = Console.ReadLine();
+            Char[] charSent = sent.ToCharArray();
+            Char a = 'а';
+            Char A = 'А';
+            int cnt = 0;
+//Подсчет количества гласных в строке
+            const string glas_lett = "АаЫыЕеУуИиЯяОоЮюЭэ";
+            for (int i = 0; i < sent.Length; ++i)
+                for (int j = 0; j < glas_lett.Length; ++j)
+                    if (sent[i] == glas_lett[j])
+                        ++cnt;
+            Console.Write(cnt);
+            Console.ReadLine();
+//Заменить в строке все маленькие а на большие А
+            for (int i = 0; i < charSent.Length; i++)
+            {
+                if (charSent[i] == a)
+                {
+                    charSent[i] = A;
+                }
+            }
+
+            sent = new string(charSent);
+            Console.WriteLine(sent);
+            Console.ReadLine();
+            Console.ReadKey();
+        }
+    }
+}
+
