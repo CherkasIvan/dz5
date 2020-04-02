@@ -1,0 +1,28 @@
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            int[] array = new int[8];
+            {
+                int value = 0, index = 0;
+                for (int i = 0; i <= array.Length - 1; i++)
+                {
+                    array[i] = random.Next(-10, 10);
+                    Console.WriteLine($"Элемент массива {array[i]}");
+                    if (array[i] < 0)
+                    {
+                        value = array[i];
+                        index = i;
+                    }
+                }
+                Console.WriteLine($"Последний отрицательный элемент массива: {index + 1}, его значение {value}");
+            }
+            Console.ReadLine();
+        }
+    }
+}
